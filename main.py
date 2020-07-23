@@ -5,7 +5,7 @@ from page_rank import add_page_ranks
 
 def indexing(elastic):
     jsons_directories=input("jsons_directories:")
-    meta_data_csv = input("input meta data scv address")
+    meta_data_csv = input("input meta data csv address")
     addresses = get_address_list(jsons_directories)
     elastic.meta_data_to_sql(address=meta_data_csv)
     elastic.save_to_elasticsearch(address_list=addresses)

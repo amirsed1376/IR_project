@@ -30,13 +30,12 @@ def page_rank(G, s=.85, maxerr=.0001):
     return r / float(sum(r))
 
 
-def add_page_ranks(alpha=0.85, elastic_url="localhost:9200"):
+def add_page_ranks(alpha=0.85, elastic_url="localhost:9200" ,size=10000):
     elastic = CoronaIndexElasticSearch(elastic_url)
     body = {"_source": ["metadata.title", "bib_entries"],
             "query":
                 {"match_all": {}, },
-            "size": 10000
-            # "size": 100
+            "size": size
             }
 
     elements = elastic.client.search(index=elastic.index_name, body=json.dumps(body), scroll="1m", )
