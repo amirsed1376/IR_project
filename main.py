@@ -1,10 +1,13 @@
 from indexing import CoronaIndexElasticSearch
 from needed import get_address_list
+from page_rank import add_page_ranks
 
 
 def indexing(elastic):
-    addresses = get_address_list("cord-19_2020-03-13/2020-03-13/jsons")
-    elastic.meta_data_to_sql(address="cord-19_2020-03-13/2020-03-13/all_sources_metadata_2020-03-13.csv")
+    jsons_directories=input("jsons_directories:")
+    meta_data_csv = input("input meta data scv address")
+    addresses = get_address_list(jsons_directories)
+    elastic.meta_data_to_sql(address=meta_data_csv)
     elastic.save_to_elasticsearch(address_list=addresses)
 
 
@@ -13,13 +16,22 @@ def remove_elastic_search(elastic):
 
 
 if __name__ == '__main__':
-    print("1: for indexing\n"
-          "2 : for delete elastic search\n ")
+    elastic_url = input("input elastic url [for example localhost:9200]:")
+    print(
+        "1 : for delete elastic search\n "
+        "2 : for indexing\n"
+        "3: for ")
     while True:
-        elastic_search = CoronaIndexElasticSearch("localhost:9200")
+        elastic_search = CoronaIndexElasticSearch(elastic_url)
 
         command = input("input command: ")
+
         if command.strip() == "1":
-            indexing(elastic=elastic_search)
-        if command.strip() == "2":
             remove_elastic_search(elastic=elastic_search)
+
+        if command.strip() == "2":
+            indexing(elastic=elastic_search)
+
+        if command.strip() == "3":
+            alpha = input("alpha = ")
+            add_page_ranks(alpha=alpha, elastic_url=elastic_url)

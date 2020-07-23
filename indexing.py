@@ -48,10 +48,9 @@ class CoronaIndexElasticSearch():
             except:
                 data["authors"] = None
 
-
             try:
                 if len(data["metadata"]["title"].strip()) > 0:
-                    self.client.index(index=self.index_name, body=data , id=data["paper_id"])
+                    self.client.index(index=self.index_name, body=data, id=data["paper_id"])
             except Exception as e:
                 print(e)
 
@@ -101,12 +100,21 @@ class CoronaIndexElasticSearch():
                          data=settings)
             requests.post(self.url + self.index_name + "/_open")
 
-    def meta_data_to_sql(self, address):
+    def meta_data_to_sql(self, address="cord-19_2020-03-13/2020-03-13/all_sources_metadata_2020-03-13.csv"):
         df = pd.read_csv(address)
         columns = [col.replace(" ", "_") for col in df.columns]
         df.columns = columns
         meta_df = self.meta_data_pre_process(df=df)
         meta_df.to_sql(name="information", con=self.sql_manager.conn, if_exists="replace")
+
+    def add_field_doc(self, doc_id, script):
+        # json.loads(requests.post(self.url + index + "/_update/" + doc_id,
+        #                          headers={"Content-Type": "application/json"},
+        #                          data=script).text)
+        url = "{}{}/_update/{}".format(self.url, self.index_name, doc_id)
+        json.loads(requests.post(url,
+                                 headers={"Content-Type": "application/json"},
+                                 data=script).text)
 
 
 if __name__ == '__main__':

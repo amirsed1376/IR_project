@@ -15,7 +15,7 @@ def create_folder(address):
         os.makedirs(address)
 
 
-def get_address_list(address):
+def get_address_list(address="cord-19_2020-03-13/2020-03-13/jsons"):
     result_list = list()
     for root, dirs, files in os.walk(os.path.abspath(address)):
         for file in files:
