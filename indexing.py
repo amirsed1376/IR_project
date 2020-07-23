@@ -1,9 +1,22 @@
 from elasticsearch import Elasticsearch
-import os
 import json
 import requests
 import pandas as pd
-from needed import SqlManager, get_address_list   ,convert_time
+from needed import SqlManager, convert_time, get_address_list
+
+
+def clean_list(x: str):
+    try:
+        for ch in "{}[]":
+            x = x.replace(ch, " ")
+
+        for ch in ";:":
+            x = x.replace(ch, ",")
+        if x[-1] == ".":
+            return x[:-1]
+        return x
+    except Exception as e:
+        return None
 
 
 class CoronaIndexElasticSearch():
@@ -16,27 +29,36 @@ class CoronaIndexElasticSearch():
 
     def meta_data_pre_process(self, df):
         df["publish_time"] = df["publish_time"].apply(lambda x: convert_time(x))
-        print(df["publish_time"])
-        # df["publish_time"]=strptime(df["publish_time"].s,'%b').tm_mon
+        df["authors"] = df["authors"].apply(lambda x: clean_list(x))
         return df
 
     def save_to_elasticsearch(self, address_list):
         for index, address in enumerate(address_list):
             data = dict(json.load(open(address, "r")))
             sha = str(address).split("/")[-1].split(".")[0].strip()
-            sql = "select publish_time from information where sha = '{}'".format(sha)
+            sql = "select publish_time,authors from information where sha = '{}'".format(sha)
             try:
-                result = self.sql_manager.crs.execute(sql).fetchall()[0][0]
+                data["publish_time"] = self.sql_manager.crs.execute(sql).fetchall()[0][0]
+
             except:
-                result = None
+                data["publish_time"] = None
+
             try:
-                data["publish_time"] = result
-                self.client.index(index=self.index_name, body=data)
+                data["authors"] = str(self.sql_manager.crs.execute(sql).fetchall()[0][1]).split(",")
+            except:
+                data["authors"] = None
+
+
+            try:
+                if len(data["metadata"]["title"].strip()) > 0:
+                    self.client.index(index=self.index_name, body=data , id=data["paper_id"])
             except Exception as e:
                 print(e)
 
-    def delete_index_from_elasticsearch(self):
+    def delete_index_from_elasticsearch(self, create_again=False):
         self.client.indices.delete(index=self.index_name)
+        if create_again:
+            self.create_index(self.index_name)
 
     def create_index(self, index_name):
 
@@ -90,6 +112,6 @@ class CoronaIndexElasticSearch():
 if __name__ == '__main__':
     elastic_Search = CoronaIndexElasticSearch("localhost:9200")
     addresses = get_address_list("cord-19_2020-03-13/2020-03-13/jsons")
-    # elastic_Search.save_to_elasticsearch(address_list=addresses)
+    elastic_Search.save_to_elasticsearch(address_list=addresses)
     elastic_Search.meta_data_to_sql(address="cord-19_2020-03-13/2020-03-13/all_sources_metadata_2020-03-13.csv")
     # elastic_Search.delete_index_from_elasticsearch()

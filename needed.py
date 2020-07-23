@@ -34,4 +34,8 @@ def convert_time(time):
     elif "-" in time:
         return time
     else:
-        return "{}-01-01".format(time)
+        try:
+            int(time)
+            return "{}-01-01".format(time)
+        except:
+            return None
