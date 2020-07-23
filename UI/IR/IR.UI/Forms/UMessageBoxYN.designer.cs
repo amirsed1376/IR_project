@@ -1,4 +1,4 @@
-﻿namespace Acc_Plus.UI
+﻿namespace IR.UI.Forms
 {
     partial class UMessageBoxYN
     {

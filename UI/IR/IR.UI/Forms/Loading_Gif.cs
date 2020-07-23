@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Acc_Plus.UI
+namespace IR.UI.Forms
 {
     public partial class Loading_Gif : Form
     {
