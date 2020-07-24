@@ -38,26 +38,37 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tbxAlpha = new MyComponent.Tbx();
-            this.lbl2 = new MyComponent.Lbl();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.chbxUsePageRank = new MyComponent.Chbx();
-            this.tbxTitleText = new MyComponent.Tbx();
-            this.lbl3 = new MyComponent.Lbl();
-            this.tbxTitleWeight = new MyComponent.Tbx();
-            this.lbl4 = new MyComponent.Lbl();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lbl5 = new MyComponent.Lbl();
-            this.tbxTitleSummary = new MyComponent.Tbx();
-            this.lbl6 = new MyComponent.Lbl();
-            this.tbxWeightSummary = new MyComponent.Tbx();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lbl7 = new MyComponent.Lbl();
             this.tbxDate = new MyComponent.Tbx();
             this.lbl8 = new MyComponent.Lbl();
             this.tbxWeightDate = new MyComponent.Tbx();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lbl5 = new MyComponent.Lbl();
+            this.tbxTitleSummary = new MyComponent.Tbx();
+            this.lbl6 = new MyComponent.Lbl();
+            this.tbxWeightSummary = new MyComponent.Tbx();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbl3 = new MyComponent.Lbl();
+            this.tbxTitleText = new MyComponent.Tbx();
+            this.lbl4 = new MyComponent.Lbl();
+            this.tbxTitleWeight = new MyComponent.Tbx();
+            this.chbxUsePageRank = new MyComponent.Chbx();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tbxAlpha = new MyComponent.Tbx();
+            this.lbl2 = new MyComponent.Lbl();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tbxElasticURL = new MyComponent.Tbx();
+            this.tbxJsonPath = new MyComponent.Tbx();
+            this.tbxCSV = new MyComponent.Tbx();
+            this.lbl11 = new MyComponent.Lbl();
+            this.lbl10 = new MyComponent.Lbl();
+            this.lbl9 = new MyComponent.Lbl();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.btnSelectJson = new MyComponent.Btn();
+            this.btnSelectCSV = new MyComponent.Btn();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSave)).BeginInit();
@@ -65,10 +76,11 @@
             this.panel3.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -150,6 +162,7 @@
             this.btnOk.TabIndex = 2;
             this.btnOk.Text = "Search";
             this.btnOk.UseVisualStyleBackColor = false;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // panel3
             // 
@@ -165,6 +178,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Behnam", 11F);
             this.tabControl1.Location = new System.Drawing.Point(5, 5);
@@ -189,164 +203,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Search";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.tbxAlpha);
-            this.tabPage2.Controls.Add(this.lbl2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 34);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(401, 405);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Page Rank";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tbxAlpha
-            // 
-            this.tbxAlpha.Font = new System.Drawing.Font("BenyaminNum", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tbxAlpha.Location = new System.Drawing.Point(132, 68);
-            this.tbxAlpha.Name = "tbxAlpha";
-            this.tbxAlpha.settingChange = true;
-            this.tbxAlpha.Size = new System.Drawing.Size(131, 30);
-            this.tbxAlpha.TabIndex = 1;
-            // 
-            // lbl2
-            // 
-            this.lbl2.Font = new System.Drawing.Font("Behnam", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lbl2.Location = new System.Drawing.Point(86, 71);
-            this.lbl2.Name = "lbl2";
-            this.lbl2.settingChange = true;
-            this.lbl2.Size = new System.Drawing.Size(40, 25);
-            this.lbl2.TabIndex = 0;
-            this.lbl2.Text = "α = ";
-            this.lbl2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // toolTip1
-            // 
-            this.toolTip1.IsBalloon = true;
-            // 
-            // chbxUsePageRank
-            // 
-            this.chbxUsePageRank.Font = new System.Drawing.Font("Behnam", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.chbxUsePageRank.Location = new System.Drawing.Point(12, 6);
-            this.chbxUsePageRank.Name = "chbxUsePageRank";
-            this.chbxUsePageRank.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.chbxUsePageRank.settingChange = true;
-            this.chbxUsePageRank.Size = new System.Drawing.Size(195, 39);
-            this.chbxUsePageRank.TabIndex = 0;
-            this.chbxUsePageRank.Text = "Use Page Rank ?";
-            this.chbxUsePageRank.UseVisualStyleBackColor = true;
-            // 
-            // tbxTitleText
-            // 
-            this.tbxTitleText.Font = new System.Drawing.Font("BenyaminNum", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tbxTitleText.Location = new System.Drawing.Point(84, 26);
-            this.tbxTitleText.Name = "tbxTitleText";
-            this.tbxTitleText.settingChange = true;
-            this.tbxTitleText.Size = new System.Drawing.Size(288, 30);
-            this.tbxTitleText.TabIndex = 3;
-            // 
-            // lbl3
-            // 
-            this.lbl3.Font = new System.Drawing.Font("Behnam", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lbl3.Location = new System.Drawing.Point(16, 29);
-            this.lbl3.Name = "lbl3";
-            this.lbl3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lbl3.settingChange = true;
-            this.lbl3.Size = new System.Drawing.Size(62, 25);
-            this.lbl3.TabIndex = 2;
-            this.lbl3.Text = "Text : ";
-            this.lbl3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // tbxTitleWeight
-            // 
-            this.tbxTitleWeight.Font = new System.Drawing.Font("BenyaminNum", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tbxTitleWeight.Location = new System.Drawing.Point(84, 70);
-            this.tbxTitleWeight.Name = "tbxTitleWeight";
-            this.tbxTitleWeight.settingChange = true;
-            this.tbxTitleWeight.Size = new System.Drawing.Size(63, 30);
-            this.tbxTitleWeight.TabIndex = 5;
-            // 
-            // lbl4
-            // 
-            this.lbl4.Font = new System.Drawing.Font("Behnam", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lbl4.Location = new System.Drawing.Point(-4, 70);
-            this.lbl4.Name = "lbl4";
-            this.lbl4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lbl4.settingChange = true;
-            this.lbl4.Size = new System.Drawing.Size(82, 25);
-            this.lbl4.TabIndex = 4;
-            this.lbl4.Text = "Weight : ";
-            this.lbl4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.lbl3);
-            this.groupBox1.Controls.Add(this.tbxTitleText);
-            this.groupBox1.Controls.Add(this.lbl4);
-            this.groupBox1.Controls.Add(this.tbxTitleWeight);
-            this.groupBox1.Location = new System.Drawing.Point(11, 44);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(378, 114);
-            this.groupBox1.TabIndex = 14;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Title";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.lbl5);
-            this.groupBox2.Controls.Add(this.tbxTitleSummary);
-            this.groupBox2.Controls.Add(this.lbl6);
-            this.groupBox2.Controls.Add(this.tbxWeightSummary);
-            this.groupBox2.Location = new System.Drawing.Point(11, 163);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(378, 114);
-            this.groupBox2.TabIndex = 15;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Summary";
-            // 
-            // lbl5
-            // 
-            this.lbl5.Font = new System.Drawing.Font("Behnam", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lbl5.Location = new System.Drawing.Point(16, 29);
-            this.lbl5.Name = "lbl5";
-            this.lbl5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lbl5.settingChange = true;
-            this.lbl5.Size = new System.Drawing.Size(62, 25);
-            this.lbl5.TabIndex = 2;
-            this.lbl5.Text = "Text : ";
-            this.lbl5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // tbxTitleSummary
-            // 
-            this.tbxTitleSummary.Font = new System.Drawing.Font("BenyaminNum", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tbxTitleSummary.Location = new System.Drawing.Point(84, 26);
-            this.tbxTitleSummary.Name = "tbxTitleSummary";
-            this.tbxTitleSummary.settingChange = true;
-            this.tbxTitleSummary.Size = new System.Drawing.Size(288, 30);
-            this.tbxTitleSummary.TabIndex = 3;
-            // 
-            // lbl6
-            // 
-            this.lbl6.Font = new System.Drawing.Font("Behnam", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lbl6.Location = new System.Drawing.Point(-4, 70);
-            this.lbl6.Name = "lbl6";
-            this.lbl6.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lbl6.settingChange = true;
-            this.lbl6.Size = new System.Drawing.Size(82, 25);
-            this.lbl6.TabIndex = 4;
-            this.lbl6.Text = "Weight : ";
-            this.lbl6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // tbxWeightSummary
-            // 
-            this.tbxWeightSummary.Font = new System.Drawing.Font("BenyaminNum", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tbxWeightSummary.Location = new System.Drawing.Point(84, 70);
-            this.tbxWeightSummary.Name = "tbxWeightSummary";
-            this.tbxWeightSummary.settingChange = true;
-            this.tbxWeightSummary.Size = new System.Drawing.Size(63, 30);
-            this.tbxWeightSummary.TabIndex = 5;
             // 
             // groupBox3
             // 
@@ -403,6 +259,280 @@
             this.tbxWeightDate.Size = new System.Drawing.Size(63, 30);
             this.tbxWeightDate.TabIndex = 5;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lbl5);
+            this.groupBox2.Controls.Add(this.tbxTitleSummary);
+            this.groupBox2.Controls.Add(this.lbl6);
+            this.groupBox2.Controls.Add(this.tbxWeightSummary);
+            this.groupBox2.Location = new System.Drawing.Point(11, 163);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(378, 114);
+            this.groupBox2.TabIndex = 15;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Summary";
+            // 
+            // lbl5
+            // 
+            this.lbl5.Font = new System.Drawing.Font("Behnam", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lbl5.Location = new System.Drawing.Point(16, 29);
+            this.lbl5.Name = "lbl5";
+            this.lbl5.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lbl5.settingChange = true;
+            this.lbl5.Size = new System.Drawing.Size(62, 25);
+            this.lbl5.TabIndex = 2;
+            this.lbl5.Text = "Text : ";
+            this.lbl5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tbxTitleSummary
+            // 
+            this.tbxTitleSummary.Font = new System.Drawing.Font("BenyaminNum", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tbxTitleSummary.Location = new System.Drawing.Point(84, 26);
+            this.tbxTitleSummary.Name = "tbxTitleSummary";
+            this.tbxTitleSummary.settingChange = true;
+            this.tbxTitleSummary.Size = new System.Drawing.Size(288, 30);
+            this.tbxTitleSummary.TabIndex = 3;
+            // 
+            // lbl6
+            // 
+            this.lbl6.Font = new System.Drawing.Font("Behnam", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lbl6.Location = new System.Drawing.Point(-4, 70);
+            this.lbl6.Name = "lbl6";
+            this.lbl6.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lbl6.settingChange = true;
+            this.lbl6.Size = new System.Drawing.Size(82, 25);
+            this.lbl6.TabIndex = 4;
+            this.lbl6.Text = "Weight : ";
+            this.lbl6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tbxWeightSummary
+            // 
+            this.tbxWeightSummary.Font = new System.Drawing.Font("BenyaminNum", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tbxWeightSummary.Location = new System.Drawing.Point(84, 70);
+            this.tbxWeightSummary.Name = "tbxWeightSummary";
+            this.tbxWeightSummary.settingChange = true;
+            this.tbxWeightSummary.Size = new System.Drawing.Size(63, 30);
+            this.tbxWeightSummary.TabIndex = 5;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lbl3);
+            this.groupBox1.Controls.Add(this.tbxTitleText);
+            this.groupBox1.Controls.Add(this.lbl4);
+            this.groupBox1.Controls.Add(this.tbxTitleWeight);
+            this.groupBox1.Location = new System.Drawing.Point(11, 44);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(378, 114);
+            this.groupBox1.TabIndex = 14;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Title";
+            // 
+            // lbl3
+            // 
+            this.lbl3.Font = new System.Drawing.Font("Behnam", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lbl3.Location = new System.Drawing.Point(16, 29);
+            this.lbl3.Name = "lbl3";
+            this.lbl3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lbl3.settingChange = true;
+            this.lbl3.Size = new System.Drawing.Size(62, 25);
+            this.lbl3.TabIndex = 2;
+            this.lbl3.Text = "Text : ";
+            this.lbl3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tbxTitleText
+            // 
+            this.tbxTitleText.Font = new System.Drawing.Font("BenyaminNum", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tbxTitleText.Location = new System.Drawing.Point(84, 26);
+            this.tbxTitleText.Name = "tbxTitleText";
+            this.tbxTitleText.settingChange = true;
+            this.tbxTitleText.Size = new System.Drawing.Size(288, 30);
+            this.tbxTitleText.TabIndex = 3;
+            // 
+            // lbl4
+            // 
+            this.lbl4.Font = new System.Drawing.Font("Behnam", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lbl4.Location = new System.Drawing.Point(-4, 70);
+            this.lbl4.Name = "lbl4";
+            this.lbl4.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lbl4.settingChange = true;
+            this.lbl4.Size = new System.Drawing.Size(82, 25);
+            this.lbl4.TabIndex = 4;
+            this.lbl4.Text = "Weight : ";
+            this.lbl4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tbxTitleWeight
+            // 
+            this.tbxTitleWeight.Font = new System.Drawing.Font("BenyaminNum", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tbxTitleWeight.Location = new System.Drawing.Point(84, 70);
+            this.tbxTitleWeight.Name = "tbxTitleWeight";
+            this.tbxTitleWeight.settingChange = true;
+            this.tbxTitleWeight.Size = new System.Drawing.Size(63, 30);
+            this.tbxTitleWeight.TabIndex = 5;
+            // 
+            // chbxUsePageRank
+            // 
+            this.chbxUsePageRank.Font = new System.Drawing.Font("Behnam", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.chbxUsePageRank.Location = new System.Drawing.Point(12, 6);
+            this.chbxUsePageRank.Name = "chbxUsePageRank";
+            this.chbxUsePageRank.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.chbxUsePageRank.settingChange = true;
+            this.chbxUsePageRank.Size = new System.Drawing.Size(195, 39);
+            this.chbxUsePageRank.TabIndex = 0;
+            this.chbxUsePageRank.Text = "Use Page Rank ?";
+            this.chbxUsePageRank.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.tbxAlpha);
+            this.tabPage2.Controls.Add(this.lbl2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 34);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(401, 405);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Page Rank";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tbxAlpha
+            // 
+            this.tbxAlpha.Font = new System.Drawing.Font("BenyaminNum", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tbxAlpha.Location = new System.Drawing.Point(132, 68);
+            this.tbxAlpha.Name = "tbxAlpha";
+            this.tbxAlpha.settingChange = true;
+            this.tbxAlpha.Size = new System.Drawing.Size(131, 30);
+            this.tbxAlpha.TabIndex = 1;
+            // 
+            // lbl2
+            // 
+            this.lbl2.Font = new System.Drawing.Font("Behnam", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lbl2.Location = new System.Drawing.Point(86, 71);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.settingChange = true;
+            this.lbl2.Size = new System.Drawing.Size(40, 25);
+            this.lbl2.TabIndex = 0;
+            this.lbl2.Text = "α = ";
+            this.lbl2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.IsBalloon = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.btnSelectCSV);
+            this.tabPage3.Controls.Add(this.btnSelectJson);
+            this.tabPage3.Controls.Add(this.tbxCSV);
+            this.tabPage3.Controls.Add(this.lbl11);
+            this.tabPage3.Controls.Add(this.tbxJsonPath);
+            this.tabPage3.Controls.Add(this.lbl10);
+            this.tabPage3.Controls.Add(this.tbxElasticURL);
+            this.tabPage3.Controls.Add(this.lbl9);
+            this.tabPage3.Location = new System.Drawing.Point(4, 34);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(401, 405);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Declare Path";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tbxElasticURL
+            // 
+            this.tbxElasticURL.Font = new System.Drawing.Font("BenyaminNum", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tbxElasticURL.Location = new System.Drawing.Point(151, 48);
+            this.tbxElasticURL.Name = "tbxElasticURL";
+            this.tbxElasticURL.settingChange = true;
+            this.tbxElasticURL.Size = new System.Drawing.Size(203, 30);
+            this.tbxElasticURL.TabIndex = 3;
+            this.tbxElasticURL.Text = "http://localhost:9200/";
+            // 
+            // tbxJsonPath
+            // 
+            this.tbxJsonPath.Font = new System.Drawing.Font("BenyaminNum", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tbxJsonPath.Location = new System.Drawing.Point(150, 106);
+            this.tbxJsonPath.Name = "tbxJsonPath";
+            this.tbxJsonPath.settingChange = true;
+            this.tbxJsonPath.Size = new System.Drawing.Size(204, 30);
+            this.tbxJsonPath.TabIndex = 3;
+            // 
+            // tbxCSV
+            // 
+            this.tbxCSV.Font = new System.Drawing.Font("BenyaminNum", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tbxCSV.Location = new System.Drawing.Point(150, 164);
+            this.tbxCSV.Name = "tbxCSV";
+            this.tbxCSV.settingChange = true;
+            this.tbxCSV.Size = new System.Drawing.Size(204, 30);
+            this.tbxCSV.TabIndex = 3;
+            // 
+            // lbl11
+            // 
+            this.lbl11.Font = new System.Drawing.Font("Behnam", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lbl11.Location = new System.Drawing.Point(5, 167);
+            this.lbl11.Name = "lbl11";
+            this.lbl11.settingChange = true;
+            this.lbl11.Size = new System.Drawing.Size(139, 25);
+            this.lbl11.TabIndex = 2;
+            this.lbl11.Text = "Meta Data CSV :";
+            this.lbl11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl10
+            // 
+            this.lbl10.Font = new System.Drawing.Font("Behnam", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lbl10.Location = new System.Drawing.Point(10, 109);
+            this.lbl10.Name = "lbl10";
+            this.lbl10.settingChange = true;
+            this.lbl10.Size = new System.Drawing.Size(134, 25);
+            this.lbl10.TabIndex = 2;
+            this.lbl10.Text = "Jsons  Path :";
+            this.lbl10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl9
+            // 
+            this.lbl9.Font = new System.Drawing.Font("Behnam", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lbl9.Location = new System.Drawing.Point(41, 51);
+            this.lbl9.Name = "lbl9";
+            this.lbl9.settingChange = true;
+            this.lbl9.Size = new System.Drawing.Size(103, 25);
+            this.lbl9.TabIndex = 2;
+            this.lbl9.Text = "Elastic URL :";
+            this.lbl9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnSelectJson
+            // 
+            this.btnSelectJson.BeepSounds = true;
+            this.btnSelectJson.Font = new System.Drawing.Font("IRANSans Light", 11F);
+            this.btnSelectJson.Location = new System.Drawing.Point(360, 106);
+            this.btnSelectJson.Name = "btnSelectJson";
+            this.btnSelectJson.PaintCurves = false;
+            this.btnSelectJson.PaintNo = false;
+            this.btnSelectJson.PaintOthers = false;
+            this.btnSelectJson.PaintYes = false;
+            this.btnSelectJson.settingChange = true;
+            this.btnSelectJson.Size = new System.Drawing.Size(38, 30);
+            this.btnSelectJson.TabIndex = 4;
+            this.btnSelectJson.Text = "...";
+            this.btnSelectJson.UseVisualStyleBackColor = true;
+            this.btnSelectJson.Click += new System.EventHandler(this.btnSelectJson_Click);
+            // 
+            // btnSelectCSV
+            // 
+            this.btnSelectCSV.BeepSounds = true;
+            this.btnSelectCSV.Font = new System.Drawing.Font("IRANSans Light", 11F);
+            this.btnSelectCSV.Location = new System.Drawing.Point(360, 164);
+            this.btnSelectCSV.Name = "btnSelectCSV";
+            this.btnSelectCSV.PaintCurves = false;
+            this.btnSelectCSV.PaintNo = false;
+            this.btnSelectCSV.PaintOthers = false;
+            this.btnSelectCSV.PaintYes = false;
+            this.btnSelectCSV.settingChange = true;
+            this.btnSelectCSV.Size = new System.Drawing.Size(38, 30);
+            this.btnSelectCSV.TabIndex = 5;
+            this.btnSelectCSV.Text = "...";
+            this.btnSelectCSV.UseVisualStyleBackColor = true;
+            this.btnSelectCSV.Click += new System.EventHandler(this.btnSelectCSV_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -412,6 +542,8 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Shown += new System.EventHandler(this.Main_Shown);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSave)).EndInit();
@@ -419,10 +551,11 @@
             this.panel3.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -458,5 +591,16 @@
         private MyComponent.Lbl lbl4;
         private MyComponent.Tbx tbxTitleWeight;
         private MyComponent.Chbx chbxUsePageRank;
+        private System.Windows.Forms.TabPage tabPage3;
+        private MyComponent.Btn btnSelectCSV;
+        private MyComponent.Btn btnSelectJson;
+        private MyComponent.Tbx tbxCSV;
+        private MyComponent.Lbl lbl11;
+        private MyComponent.Tbx tbxJsonPath;
+        private MyComponent.Lbl lbl10;
+        private MyComponent.Tbx tbxElasticURL;
+        private MyComponent.Lbl lbl9;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

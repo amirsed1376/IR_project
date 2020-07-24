@@ -23,7 +23,7 @@ class CoronaIndexElasticSearch():
     def __init__(self, host, sql_file="information.sqlite", index_name="corona_index", ):
         self.client = Elasticsearch(hosts=[host])
         self.index_name = index_name
-        self.url = "http://" + host + "/"
+        self.url =  host 
         self.create_index(index_name)
         self.sql_manager = SqlManager(sql_file)
 

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Acc_Plus.UI
+namespace IR.UI.Forms
 {
     public partial class UMessageBoxYN : Form
     {
