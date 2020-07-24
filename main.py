@@ -3,6 +3,7 @@ from needed import get_address_list
 from page_rank import add_page_ranks
 import sys
 
+
 def indexing(elastic,jsons_directories,meta_data_csv):
     addresses = get_address_list(jsons_directories)
     elastic.meta_data_to_sql(address=meta_data_csv)
